@@ -1,0 +1,33 @@
+{
+  "name": "DATA 730 assignment",
+  "image": "ghcr.io/prefix-dev/pixi:latest",
+  "containerEnv": {
+    "TZ": "America/New_York",
+    "PATH": "${containerWorkspaceFolder}/.pixi/envs/default/bin:${containerEnv:PATH}"
+  },
+  "onCreateCommand": "DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git openssh-client tzdata && rm -rf /var/lib/apt/lists/* && pixi install",
+  "postAttachCommand": {
+    "jupyterlab": "pixi run lab"
+  },
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.pixi/envs/default/bin/python",
+        "terminal.integrated.env.linux": {
+          "PATH": "${containerWorkspaceFolder}/.pixi/envs/default/bin:${env:PATH}"
+        }
+      },
+      "extensions": [
+        "ms-toolsai.jupyter",
+        "reditorsupport.r"
+      ]
+    }
+  }
+}
