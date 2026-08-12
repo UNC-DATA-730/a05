@@ -1,7 +1,12 @@
 [project]
-name = "data730"
-channels = ["conda-forge", "r", "chuckpr"]
-platforms = ["linux-64", "osx-64", "osx-arm64"]
+authors = ["Chuck Pepe-Ranney <chuck.peperanney@gmail.com>"]
+channels = ["conda-forge", "chuckpr"]
+description = "DATA 730 assignment environment"
+name = "data730-assignment"
+platforms = ["osx-64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
 
 [dependencies]
 python = "3.9.*"
@@ -13,18 +18,26 @@ r-vip = "*"
 r-ranger = "*"
 r-islr2 = "*"
 r-moderndive = "*"
+r-rpart = "*"
+"r-rpart.plot" = "*"
 r-palmerpenguins = "*"
 scikit-learn = "*"
 plotnine = "*"
 statsmodels = "*"
 altair = "*"
-patsy = "*"
-pyarrow = "*"
 ipykernel = "*"
-jupyterlab = "*"
 
 [pypi-dependencies]
 palmerpenguins = "*"
+drawdata = "*"
 
-[tasks]
-lab = "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''"
+# JupyterLab frontend for running notebooks locally (e.g. on a laptop). It is
+# kept out of the default environment on purpose: the Codespaces devcontainer
+# uses the universal image's own JupyterLab, so `pixi install --locked` there
+# (see .devcontainer/setup.sh) never builds this env. Locally, launch with:
+#   pixi run -e lab jupyter lab
+[feature.lab.dependencies]
+jupyterlab = "*"
+
+[environments]
+lab = ["lab"]

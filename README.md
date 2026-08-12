@@ -1,56 +1,39 @@
-# `DATA 730 assignment repository`
+# DATA 730 assignment #6 repository
 
-<!--toc:start-->
-- [`DATA 730 assignment repository`](#data-730-assignment-repository)
-  - [Instructions](#instructions)
-    - [Working in a GitHub Codespace (recommended)](#working-in-a-github-codespace-recommended)
-    - [Working locally with conda (fallback)](#working-locally-with-conda-fallback)
-    - [Troubleshooting](#troubleshooting)
-<!--toc:end-->
+> :warning: **Do not clone this repository directly.**
+> Use the 🍴 fork link on the assignment page in Canvas, then work in your own copy.
 
-> :warning: **Do not clone this repository directly!**
-> Use the invite link instead: <https://github.com/UNC-DATA-730/assignments>
->
-## Instructions
+Full step by step instructions, including how to submit, are on Canvas. See the
+**📋 Working on assignments** page in the Toolbox module of our course.
 
-Complete the assignment [Jupyter notebook 📓](assignment6.ipynb) and
-push your completed copy to your assignment repository.
+## Quick version
 
-### Working in a GitHub Codespace (recommended)
+1. Fork this repository from the link on the Canvas assignment page.
+2. From **your** copy on GitHub, click **Code → Codespaces → Create codespace on main**.
+   The first launch takes a few minutes while it installs R and the course packages.
+3. Open the codespace in JupyterLab: from your list of codespaces at
+   [github.com/codespaces](https://github.com/codespaces), open the **...** menu next to
+   the codespace and choose **Open in JupyterLab**.
+4. Open [`assignment6.ipynb`](assignment6.ipynb) and pick the **R (pixi)** kernel.
+5. Commit and push your work back to your copy. **Pushing is what turns it in.**
+6. Paste the URL of your copy of the repository into the Website URL box on the Canvas
+   assignment page.
 
-1. From your personal assignment repository on GitHub, click
-   **Code → Codespaces → Create codespace on main**.
-2. Wait for the codespace to finish starting. On first launch it will
-   resolve the environment with [pixi](https://pixi.sh); expect this to
-   take a few minutes.
-3. JupyterLab will open automatically in a new browser tab (via the
-   forwarded port 8888). **Use that tab** — do not click the GitHub
-   "Open in JupyterLab" button; it uses a different Jupyter server
-   that cannot see this repository's R kernel.
-4. Open `assignment6.ipynb` and, when prompted, choose the **R** kernel.
+Everything you need (R, tidyverse, tidymodels, palmerpenguins, scikit-learn and the rest)
+is already installed in the codespace. There is nothing to set up on your own machine.
 
-Everything you need (R, tidyverse, palmerpenguins, tidymodels, scikit-learn,
-etc.) is pre-installed in the codespace.
+## Working locally instead
 
-### Working locally with conda (fallback)
-
-If you prefer to work on your own machine with conda:
+If you would rather work on your own computer, install [pixi](https://pixi.sh) and run:
 
 ```bash
-# Make sure your prompt is located in your assignment repository directory
-conda env update --name data730 --file environment.yml
+pixi install
+pixi run -e lab jupyter lab
 ```
 
-Then launch JupyterLab as you normally would from your `data730` environment.
+## Codespaces will stop on their own
 
-### Troubleshooting
-
-- **JupyterLab didn't open automatically.** Open a terminal in the codespace
-  and run `pixi run lab`. The forwarded port (8888) should then open. If you
-  already have a tab from GitHub's "Open in JupyterLab" button, close it —
-  it's a different server without the R kernel.
-- **The R kernel is not listed.** Run `pixi run jupyter kernelspec list` in
-  a codespace terminal to confirm `ir` is registered. If it is missing, run
-  `pixi run Rscript -e 'IRkernel::installspec(user = FALSE)'` and reload.
-- **Environment install failed.** Try `pixi install` again from a terminal.
-  If that also fails, report the error in the class channel.
+A codespace stops after 30 minutes of inactivity. Saved files are still there when you
+start it again, but **anything you have not committed and pushed stays inside that
+codespace**, and GitHub deletes codespaces that go unused for 30 days. Push your work at
+the end of every session.
