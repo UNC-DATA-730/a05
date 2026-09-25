@@ -1,8 +1,12 @@
 {
   "name": "DATA 730 assignment",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "installJupyterlab": true }
+  },
   "hostRequirements": { "cpus": 4, "memory": "8gb" },
   "postCreateCommand": "bash .devcontainer/setup.sh",
+  "waitFor": "postCreateCommand",
   "customizations": {
     "vscode": {
       "extensions": [
