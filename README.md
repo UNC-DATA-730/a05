@@ -11,9 +11,11 @@ Full step by step instructions, including how to submit, are on Canvas. See the
 1. Fork this repository from the link on the Canvas assignment page.
 2. From **your** copy on GitHub, click **Code → Codespaces → Create codespace on main**.
    The first launch takes a minute or two while it downloads the course environment.
-3. Open the codespace in JupyterLab: from your list of codespaces at
-   [github.com/codespaces](https://github.com/codespaces), open the **...** menu next to
-   the codespace and choose **Open in JupyterLab**.
+3. Once the codespace opens, a **JupyterLab** tab opens by itself. If your browser blocks
+   the pop-up, click **Open in Browser** on the notification in the bottom-right corner,
+   or open the **Ports** tab at the bottom and click the globe icon next to **JupyterLab**.
+   (Do not use GitHub's **Open in JupyterLab** menu item: it loads JupyterLab inside a
+   frame, which most browsers block.)
 4. Open [`assignment6.ipynb`](assignment6.ipynb) and pick the **R (pixi)** kernel.
 5. Commit and push your work back to your copy. **Pushing is what turns it in.**
 6. Paste the URL of your copy of the repository into the Website URL box on the Canvas
