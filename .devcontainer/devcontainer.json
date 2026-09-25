@@ -2,7 +2,7 @@
   "name": "DATA 730 assignment",
   "image": "ghcr.io/unc-data-730/env:latest",
   "hostRequirements": { "cpus": 4, "memory": "8gb" },
-  "postStartCommand": "nohup jupyter lab --no-browser --ip=0.0.0.0 --port=8888 --IdentityProvider.token='' --ServerApp.root_dir=${containerWorkspaceFolder} > /tmp/jupyterlab.log 2>&1 &",
+  "postStartCommand": "jupyter lab --no-browser --ip=0.0.0.0 --port=8888 --IdentityProvider.token='' --ServerApp.root_dir=${containerWorkspaceFolder}",
   "forwardPorts": [8888],
   "portsAttributes": {
     "8888": { "label": "JupyterLab", "onAutoForward": "openBrowser" }
@@ -11,7 +11,6 @@
     "vscode": {
       "extensions": [
         "ms-toolsai.jupyter",
-        "ms-python.python",
         "REditorSupport.r"
       ]
     }
