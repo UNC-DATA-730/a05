@@ -10,7 +10,7 @@ Full step by step instructions, including how to submit, are on Canvas. See the
 
 1. Fork this repository from the link on the Canvas assignment page.
 2. From **your** copy on GitHub, click **Code → Codespaces → Create codespace on main**.
-   The first launch takes a few minutes while it installs R and the course packages.
+   The first launch takes a minute or two while it downloads the course environment.
 3. Open the codespace in JupyterLab: from your list of codespaces at
    [github.com/codespaces](https://github.com/codespaces), open the **...** menu next to
    the codespace and choose **Open in JupyterLab**.
